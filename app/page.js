@@ -10,7 +10,7 @@ export default function Home() {
   const [checked, setChecked] = useState(false)
   const [today, setDate] = useState(new Date());
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
