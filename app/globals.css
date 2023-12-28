@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,4 +27,43 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+  opacity: 0
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
 }

@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -12,7 +13,31 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      transitionDelay: {
+        '0': '0ms',
+        '2000': '2000ms',
+       }
+    },
+    fontFamily: {
+      just : ['Just Me Again Down Here', 'cursive'],
+      Roboto_Condensed : ['Roboto Condensed', 'sans-serif'],
+    }
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['dark'],
+      borderColor: ['dark'],
+      textColor: ['dark'],
     },
   },
-  plugins: [],
+  plugins: [
+    require('taos/plugin')
+  ],
+  darkMode: 'class',
+  safelist: [
+    '!duration-[0ms]',
+    '!delay-[0ms]',
+    'html.js :where([class*="taos:"]:not(.taos-init))'
+  ]
 }
+
