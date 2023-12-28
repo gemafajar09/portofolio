@@ -1,12 +1,11 @@
 import Image from 'next/image'
-import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 export default function Listproject({index}) {
   const controls = useAnimation();
     return(
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={controls}
         className="mt-10 shadow-md bg-white rounded-[8px] hover:scale-105">
             <Image

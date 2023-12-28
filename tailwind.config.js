@@ -40,4 +40,3 @@ module.exports = {
     'html.js :where([class*="taos:"]:not(.taos-init))'
   ]
 }
-

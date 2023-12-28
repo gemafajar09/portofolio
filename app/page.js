@@ -63,13 +63,13 @@ export default function Home() {
         </div>
         <div>
           <Switch onChange={() => handleChange()} 
-              onColor={'#f2f4f5'}
-              offColor={'#c9c9c9'}
-              offHandleColor={'#57e34b'}
-              onHandleColor={'#2e2e2d'}
-              uncheckedIcon={false}
+              offColor={'#f2f4f5'}
+              onColor={'#c9c9c9'}
+              onHandleColor={'#57e34b'}
+              offHandleColor={'#2e2e2d'}
               checkedIcon={false}
-              uncheckedHandleIcon={
+              uncheckedIcon={false}
+              checkedHandleIcon={
               <div className="p-1">
                 <Image
                   alt="Vercel Logo"
@@ -79,7 +79,7 @@ export default function Home() {
                 />
               </div>
               } 
-              checkedHandleIcon={
+              uncheckedHandleIcon={
                 <div className="p-1">
                   <Image
                     alt="Vercel Logo"
@@ -170,6 +170,52 @@ export default function Home() {
           <p className="text-[36px] font-Roboto_Condensed font-bold pt-10 ml-10 mr-10 hover:text-green-600 border-b-2 w-max">Show More</p>
         </div>
         <p className="ml-10 mt-5 ">Semua project yang pernah saya kerjakan.</p>
+
+        <div className="w-1/4 mt-3">
+          <div className="right-0">
+            <ul
+              className="flex gap-3 ml-10 flex-wrap p-1 list-none rounded-xl bg-blue-gray-50/60"
+              data-tabs="tabs"
+              role="list"
+            >
+              <li className="z-30 flex-auto text-center">
+                <a
+                  className="z-30 outline outline-green-400 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit"
+                  data-tab-target=""
+                  active=""
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="app"
+                >
+                  <span className="ml-1">Website</span>
+                </a>
+              </li>
+              <li className="z-30 flex-auto text-center">
+                <a
+                  className="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit"
+                  data-tab-target=""
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="message"
+                >
+                  <span className="ml-1">Android</span>
+                </a>
+              </li>
+              <li className="z-30 flex-auto text-center">
+                <a
+                  className="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit"
+                  data-tab-target=""
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="settings"
+                >
+                  <span className="ml-1">UI/UX</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div className="grid grid-cols-5 gap-5 pl-10 pr-10">
         {
           [1, 2, 3, 4, 5].map((_, i) => (
