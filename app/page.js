@@ -9,8 +9,9 @@ import Listexperience from "./component/listexperience"
 export default function Home() { 
   const [checked, setChecked] = useState(false)
   const [today, setDate] = useState(new Date());
-
   const [darkMode, setDarkMode] = useState(true);
+
+  const [option, setoption] = useState("website")
 
   useEffect(() => {
     const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
@@ -45,6 +46,10 @@ export default function Home() {
                     {'gambar' : '/email.svg', 'nama' : 'gemafajar09@gmail.com'}
                   ]
 
+  const getDayName =(date = new Date(), locale = 'id') => {
+    return date.toLocaleDateString(locale, {weekday: 'long'});
+  }
+
   useEffect(() => {
     const timer = setInterval(() => { 
       setDate(new Date());
@@ -63,6 +68,7 @@ export default function Home() {
         </div>
         <div>
           <Switch onChange={() => handleChange()} 
+              checked={checked}
               offColor={'#f2f4f5'}
               onColor={'#c9c9c9'}
               onHandleColor={'#57e34b'}
@@ -88,10 +94,12 @@ export default function Home() {
                     width={26}
                   />
                 </div>
-              } checked={checked} />
+              } 
+              />
         </div>
 
       </div>
+
     {/* wheather */}
       <div className="absolute top-[13%] right-[10%] flex flex-col text-right">
         <Image
@@ -103,7 +111,7 @@ export default function Home() {
       </div>
 
       <div className="absolute top-20 right-5 flex flex-col text-right text-gray-500 dark:text-white">
-        <span>Sunday, 01 / January / 2024</span>
+        <span>{getDayName(today)}, {today.getDate()} / {today.getMonth()} / {today.getFullYear()} </span>
         <span>27°C°F</span>
         <span>Presipitasi: 15%</span>
         <span>Kelembapan: 94%</span>
@@ -126,7 +134,7 @@ export default function Home() {
               src="/profile.svg"
               width={480}
             />
-            <div className="absolute h-20 rounded-md top-[43%] w-[20%] bg-[#41B883] flex justify-center items-center gap-4">
+            <div className="absolute h-20 rounded-md top-[43%] w-[20%] bg-gray-600 dark:bg-[#41B883] flex justify-center items-center gap-4">
                   <p className="font-Roboto_Condensed hover:text-teal-600 cursor-pointer">Home</p>
                   <p>/</p>
                   <p className="font-Roboto_Condensed hover:text-teal-600 cursor-pointer">About</p>
@@ -178,9 +186,9 @@ export default function Home() {
               data-tabs="tabs"
               role="list"
             >
-              <li className="z-30 flex-auto text-center">
+              <li className="z-30 flex-auto text-center" onClick={(_) => setoption("website")}>
                 <a
-                  className="z-30 outline outline-green-400 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit"
+                  className={`${option == 'website' ? 'outline' : 'hover:outline'} z-30 outline-green-400 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit`}
                   data-tab-target=""
                   active=""
                   role="tab"
@@ -190,9 +198,9 @@ export default function Home() {
                   <span className="ml-1">Website</span>
                 </a>
               </li>
-              <li className="z-30 flex-auto text-center">
+              <li className="z-30 flex-auto text-center" onClick={(_) => setoption("android")}>
                 <a
-                  className="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit"
+                  className={`${option == 'android' ? 'outline' : 'hover:outline'} z-30 outline-green-400 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit`}
                   data-tab-target=""
                   role="tab"
                   aria-selected="false"
@@ -201,9 +209,9 @@ export default function Home() {
                   <span className="ml-1">Android</span>
                 </a>
               </li>
-              <li className="z-30 flex-auto text-center">
+              <li className="z-30 flex-auto text-center" onClick={(_) => setoption("uiux")}>
                 <a
-                  className="z-30 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit"
+                  className={`${option == 'uiux' ? 'outline' : 'hover:outline'} z-30 outline-green-400 flex items-center justify-center w-full px-0 py-1 mb-0 transition-all ease-in-out border-0 rounded-lg cursor-pointer dark:text-white bg-inherit`}
                   data-tab-target=""
                   role="tab"
                   aria-selected="false"
@@ -218,7 +226,7 @@ export default function Home() {
 
         <div className="grid grid-cols-5 gap-5 pl-10 pr-10">
         {
-          [1, 2, 3, 4, 5].map((_, i) => (
+          [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
               <Listproject key={i} index={i}/>
           ))
         }

@@ -2,7 +2,7 @@ import Image from 'next/image'
 export default function Mediasosial({data}) {
     return (
         <>
-            <li className="flex">
+            <li className="flex cursor-pointer">
                 <Image
                     alt="Vercel Logo"
                     height={26}
