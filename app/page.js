@@ -5,6 +5,8 @@ import Switch from "react-switch";
 import Listproject from "./component/listproject"
 import Mediasosial from "./component/listmediasosial"
 import Listexperience from "./component/listexperience"
+import Listskill from "./component/listskill"
+import Title from "./component/title"
 
 export default function Home() { 
   const [checked, setChecked] = useState(false)
@@ -160,7 +162,7 @@ export default function Home() {
       </div>
 
     {/* Experience */}
-      <p className="text-gray-500 dark:text-white text-[36px] font-Roboto_Condensed font-bold mt-8 ml-10 border-b-2 w-max">Experience</p>
+      <Title title="Experience"/>
       <p className="text-gray-500 dark:text-white ml-10 mt-5">Pengalaman Yang Saya Punya.</p>
       <div className="grid grid-cols-2 gap-4">
         {
@@ -174,7 +176,7 @@ export default function Home() {
     {/* selected project */}
       <div className="dark:bg-[#141414] mt-10 mb-10 pb-10 text-gray-500 dark:text-white">
         <div className="flex justify-between">
-          <p className="text-[36px] font-Roboto_Condensed font-bold pt-10 ml-10 border-b-2 w-max">Selected Project</p>
+          <Title title="Selected Project"/>
           <p className="text-[36px] font-Roboto_Condensed font-bold pt-10 ml-10 mr-10 hover:text-green-600 border-b-2 w-max">Show More</p>
         </div>
         <p className="ml-10 mt-5 ">Semua project yang pernah saya kerjakan.</p>
@@ -236,7 +238,7 @@ export default function Home() {
 
     {/* floating action button */}
       <button title="Contact Sale"
-        className="fixed z-90 bottom-10 right-8 bg-gray-400 w-20 h-20 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-gray-400 hover:drop-shadow-2xl hover:animate-bounce duration-300">
+        className="fixed z-90 bottom-10 right-8 bg-gray-200 dark:bg-white w-20 h-20 rounded-full drop-shadow-lg flex justify-center items-center text-white text-4xl hover:bg-gray-400 hover:drop-shadow-2xl hover:animate-bounce duration-300">
           <Image
             alt="Vercel Logo"
             height={40}
@@ -244,6 +246,22 @@ export default function Home() {
             width={40}
           />
       </button>
+
+
+    {/* programming Language */}
+    
+      <Title title="Programming Language"/>
+      <p className="text-gray-500 dark:text-white ml-10 mt-5">Skill Pemograman yang saat ini saya miliki.</p>
+      
+      <ul className="flex justify-center gap-4 ml-10 mt-5 mb-10">
+        {
+          isiData.map((a,i) => (
+            <Listskill image={a.gambar} key={i}/>
+          ))
+        }
+      </ul>
+
     </div>
+
   )
 }
